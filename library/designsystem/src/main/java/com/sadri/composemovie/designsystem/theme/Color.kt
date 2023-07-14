@@ -1,4 +1,4 @@
-package com.sadri.designsystem.theme
+package com.sadri.composemovie.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
