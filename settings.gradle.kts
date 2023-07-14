@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +10,17 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://developer.huawei.com/repo/")
+        maven(url = "https://jitpack.io")
     }
 }
-rootProject.name = "Compose Movie"
-include ':app'
+rootProject.name = "ComposeMovie"
+
+// App
+include(":app")
+
+
+// Library
+include(
+    ":library:designsystem"
+)
