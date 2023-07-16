@@ -19,9 +19,14 @@ rootProject.name = "ComposeMovie"
 // App
 include(":app")
 
+// Feature
+include(
+    ":feature:search"
+)
 
 // Library
 include(
     ":library:designsystem",
-    ":library:network"
+    ":library:network",
+    ":library:core"
 )
