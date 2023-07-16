@@ -23,5 +23,6 @@ include(":app")
 // Library
 include(
     ":library:designsystem",
-    ":library:network"
+    ":library:network",
+    ":library:core"
 )

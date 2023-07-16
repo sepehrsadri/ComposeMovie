@@ -1,6 +1,3 @@
-import com.android.build.api.variant.impl.VariantOutputImpl
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
@@ -69,6 +66,7 @@ android {
 
 dependencies {
     implementation(project(":library:designsystem"))
+    implementation(project(":library:core"))
 
     implementation(Libs.Common.kotlinLib)
     implementation(Libs.Common.coroutines)
