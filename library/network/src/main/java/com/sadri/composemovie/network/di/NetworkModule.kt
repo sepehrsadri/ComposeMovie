@@ -2,8 +2,10 @@ package com.sadri.composemovie.network.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.sadri.composemovie.network.interceptors.HeaderInterceptor
 import com.sadri.composemovie.network.Constants.API_BASE_URL
+import com.sadri.composemovie.network.di.qualifire.LoggingInterceptor
+import com.sadri.composemovie.network.di.qualifire.OkHttpChuckerInterceptor
+import com.sadri.composemovie.network.interceptors.HeaderInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -26,6 +28,7 @@ internal object NetworkModule {
   private const val TIME_OUT = 30L
 
   @Provides
+  @LoggingInterceptor
   fun provideHttpLoggingInterceptor(): Interceptor {
     val logging = HttpLoggingInterceptor()
     logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -33,6 +36,7 @@ internal object NetworkModule {
   }
 
   @Provides
+  @OkHttpChuckerInterceptor
   fun provideChuckerInterceptor(@ApplicationContext context: Context): Interceptor {
     return ChuckerInterceptor.Builder(context).build()
   }
@@ -40,14 +44,19 @@ internal object NetworkModule {
   @Provides
   @Singleton
   fun provideOkHttpBuilder(
-    headerInterceptor: HeaderInterceptor
-  ): OkHttpClient.Builder {
+    headerInterceptor: HeaderInterceptor,
+    @LoggingInterceptor loggingInterceptor: Interceptor,
+    @OkHttpChuckerInterceptor chucker: Interceptor,
+  ): OkHttpClient {
     return OkHttpClient.Builder()
       .readTimeout(TIME_OUT, TimeUnit.SECONDS)
       .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
       .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
       .callTimeout(TIME_OUT, TimeUnit.SECONDS)
       .addInterceptor(headerInterceptor)
+      .addInterceptor(loggingInterceptor)
+      .addInterceptor(chucker)
+      .build()
   }
 
 

@@ -8,9 +8,25 @@ plugins {
 android {
     namespace = "com.sadri.composemovie.network"
     compileSdk = Android.compileSdkVersion
+
+    defaultConfig {
+        minSdk = Android.minSdkVersion
+        targetSdk = Android.targetSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
+    implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
+
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
     implementation(Libs.Common.hiltBinder)

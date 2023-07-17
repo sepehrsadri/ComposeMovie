@@ -8,7 +8,7 @@ import com.sadri.composemovie.search.domain.repository.SearchRepository
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-internal class SearchRepositoryImpl @Inject constructor(
+class SearchRepositoryImpl @Inject constructor(
   private val dispatcherProvider: DispatcherProvider,
   private val searchDataSource: SearchDataSource
 ) : SearchRepository {

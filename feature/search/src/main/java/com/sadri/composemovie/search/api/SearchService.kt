@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 private const val QUERY_KEY = "Query"
 
-internal interface SearchService {
+interface SearchService {
 
   @GET("movie/movie/list/tagid/1000300/text/{${QUERY_KEY}}/sug/on")
   suspend fun search(
