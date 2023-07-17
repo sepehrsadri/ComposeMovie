@@ -25,8 +25,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
-
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
     implementation(Libs.Common.hiltBinder)

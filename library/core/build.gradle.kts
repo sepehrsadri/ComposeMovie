@@ -33,9 +33,8 @@ android {
 }
 
 dependencies {
-  implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
-
   implementation(Libs.Common.kotlinLib)
   implementation(Libs.Common.coroutines)
   implementation(Libs.Common.coroutinesAndroid)
+  implementation(Libs.Common.composeRuntime)
 }

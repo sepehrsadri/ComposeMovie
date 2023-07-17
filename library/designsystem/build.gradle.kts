@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-
 plugins {
     id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
@@ -33,15 +31,14 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
-
     implementation(Libs.Common.composeMaterial3)
     implementation(Libs.Common.composeMaterial)
     implementation(Libs.Common.composeUi)
-    implementation(Libs.Common.composeRunTime)
+    implementation(Libs.Common.composeCompiler)
     implementation(Libs.Common.paging)
     implementation(Libs.Common.composeLifecycle)
     implementation(Libs.Common.composeActivity)
+    implementation(Libs.Common.composeRuntime)
 
     implementation(Libs.Common.imageLoader)
     implementation(Libs.Common.imageLoaderPlaceHolder)

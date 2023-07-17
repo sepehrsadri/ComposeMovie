@@ -1,4 +1,4 @@
-package com.sadri.composemovie.core
+package com.sadri.composemovie.core.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 
