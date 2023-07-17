@@ -95,6 +95,8 @@ dependencies {
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
 
+    implementation(Libs.Common.timber)
+
     testImplementation(Libs.Testing.junit)
     testImplementation(Libs.Testing.coroutinesTest)
     testImplementation(Libs.Testing.mockitoKotlin)

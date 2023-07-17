@@ -1,6 +1,6 @@
 package com.sadri.composemovie.search.data.respository
 
-import com.sadri.composemovie.core.DispatcherProvider
+import com.sadri.composemovie.core.dispatcher.DispatcherProvider
 import com.sadri.composemovie.network.utils.safeApiCall
 import com.sadri.composemovie.search.data.datasource.SearchDataSource
 import com.sadri.composemovie.search.api.response.MovieDataResponseDto

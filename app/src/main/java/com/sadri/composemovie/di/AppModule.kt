@@ -1,7 +1,7 @@
 package com.sadri.composemovie.di
 
-import com.sadri.composemovie.core.DispatcherProvider
-import com.sadri.composemovie.core.DispatcherProviderImpl
+import com.sadri.composemovie.core.dispatcher.DispatcherProvider
+import com.sadri.composemovie.core.dispatcher.DispatcherProviderImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
