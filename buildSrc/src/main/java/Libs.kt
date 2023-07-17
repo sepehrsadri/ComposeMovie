@@ -25,12 +25,13 @@ object Libs {
         const val composeActivity = "androidx.activity:activity-compose:${Versions.compose}"
         const val composeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.lifecycleKtxAlpha}"
         const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
-        const val composeRunTime = "androidx.compose.compiler:compiler:${Versions.compose}"
+        const val composeCompiler = "androidx.compose.compiler:compiler:${Versions.compose}"
         const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         const val composeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
         const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.composeMaterial3}"
         const val composeMaterial = "androidx.compose.material:material:${Versions.composeMaterial}"
         const val material3WindowSize = "androidx.compose.material3:material3-window-size-class:${Versions.material3WindowSize}"
+        const val composeRuntime = "androidx.compose.runtime:runtime:${Versions.compose}"
 
         // Hilt
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"

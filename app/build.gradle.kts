@@ -70,9 +70,6 @@ dependencies {
     implementation(project(":library:network"))
     implementation(project(":feature:search"))
 
-    implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
-
-
     implementation(Libs.Common.kotlinLib)
     implementation(Libs.Common.coroutines)
     implementation(Libs.Common.coroutinesAndroid)
@@ -81,7 +78,8 @@ dependencies {
     implementation(Libs.Common.liveDataKtx)
     implementation(Libs.Common.composeActivity)
     implementation(Libs.Common.composeUi)
-    implementation(Libs.Common.composeRunTime)
+    implementation(Libs.Common.composeCompiler)
+    implementation(Libs.Common.composeRuntime)
 
     implementation(Libs.Common.performance)
     implementation(Libs.Common.tracing)
