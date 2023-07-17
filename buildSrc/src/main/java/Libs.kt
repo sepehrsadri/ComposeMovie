@@ -12,7 +12,6 @@ object Libs {
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleKtx}"
         const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
         const val paging = "androidx.paging:paging-compose:${Versions.paging}"
-        const val worker = "androidx.work:work-runtime-ktx:${Versions.worker}"
         const val dataStore = "androidx.datastore:datastore-preferences:${Versions.prefrencesDataStore}"
         const val performance = "androidx.metrics:metrics-performance:${Versions.performance}"
         const val tracing = "androidx.tracing:tracing-ktx:${Versions.tracing}"
@@ -36,7 +35,6 @@ object Libs {
         // Hilt
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-        const val androidxHiltWork = "androidx.hilt:hilt-work:${Versions.androidxHilt}"
         const val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Versions.androidxHilt}"
         const val hiltBinder = "com.paulrybitskyi:hilt-binder:${Versions.hiltBinder}"
         const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:${Versions.hiltBinder}"
@@ -61,6 +59,7 @@ object Libs {
         const val pagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.pager}"
         const val instagramPagerIndicator = "com.github.talhatek:pager_indicator:${Versions.pagerIndicator}"
         const val collectionsImmutable = "org.jetbrains.kotlinx:kotlinx-collections-immutable:${Versions.collectionsImmutable}"
+        const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     }
 
     object Testing {

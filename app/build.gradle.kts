@@ -47,12 +47,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -67,20 +67,21 @@ android {
 dependencies {
     implementation(project(":library:designsystem"))
     implementation(project(":library:core"))
+    implementation(project(":library:network"))
+    implementation(project(":feature:search"))
+
+    implementation("androidx.compose.runtime:runtime:1.4.3")//specify the version
+
 
     implementation(Libs.Common.kotlinLib)
     implementation(Libs.Common.coroutines)
     implementation(Libs.Common.coroutinesAndroid)
 
-    implementation(Libs.Common.coreKtx)
     implementation(Libs.Common.viewModelKtx)
     implementation(Libs.Common.liveDataKtx)
     implementation(Libs.Common.composeActivity)
     implementation(Libs.Common.composeUi)
     implementation(Libs.Common.composeRunTime)
-    implementation(Libs.Common.composeUiToolingPreview)
-    implementation(Libs.Common.worker)
-    debugImplementation(Libs.Common.composeUiTooling)
 
     implementation(Libs.Common.performance)
     implementation(Libs.Common.tracing)
@@ -95,7 +96,6 @@ dependencies {
 
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
-    implementation(Libs.Common.androidxHiltWork)
 
     testImplementation(Libs.Testing.junit)
     testImplementation(Libs.Testing.coroutinesTest)
