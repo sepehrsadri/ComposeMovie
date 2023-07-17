@@ -1,31 +1,28 @@
 package com.sadri.composemovie.search.di
 
 import com.sadri.composemovie.search.api.SearchService
-import com.sadri.composemovie.search.data.datasource.SearchDataSource
 import com.sadri.composemovie.search.data.respository.SearchRepositoryImpl
 import com.sadri.composemovie.search.domain.repository.SearchRepository
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ViewModelComponent
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 internal object SearchModule {
 
   @Provides
-  @Singleton
+  @Reusable
   fun bindSearchRepository(searchRepositoryImpl: SearchRepositoryImpl): SearchRepository {
     return searchRepositoryImpl
   }
 
   @Provides
-  @Singleton
-  fun provideSearchDataSource(retrofit: Retrofit): SearchDataSource {
-    return SearchDataSource(
-      retrofit.create(SearchService::class.java)
-    )
+  @Reusable
+  fun provideSearchService(retrofit: Retrofit): SearchService {
+    return retrofit.create(SearchService::class.java)
   }
 }
