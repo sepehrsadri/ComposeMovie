@@ -21,6 +21,8 @@ class Space {
   val large: Dp = 32.dp
   val xLarge: Dp = 48.dp
   val xxLarge: Dp = 64.dp
+  val giant: Dp = 124.dp
+  val xGiant: Dp = 132.dp
 }
 
 val LocalSpace = staticCompositionLocalOf { Space() }

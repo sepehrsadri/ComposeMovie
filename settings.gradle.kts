@@ -21,7 +21,8 @@ include(":app")
 
 // Feature
 include(
-    ":feature:search"
+    ":feature:search",
+    ":feature:dashboard"
 )
 
 // Library

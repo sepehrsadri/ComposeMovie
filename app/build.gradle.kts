@@ -68,7 +68,7 @@ dependencies {
     implementation(project(":library:designsystem"))
     implementation(project(":library:core"))
     implementation(project(":library:network"))
-    implementation(project(":feature:search"))
+    implementation(project(":feature:dashboard"))
 
     implementation(Libs.Common.kotlinLib)
     implementation(Libs.Common.coroutines)
