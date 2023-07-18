@@ -163,8 +163,7 @@ private fun HintText(textHint: String, animationState: AnimationState) {
       .padding(horizontal = MaterialTheme.space.tiny)
       .offset { IntOffset(offsetX.value.toInt(), 0) },
     text = textHint,
-    style = MaterialTheme.typography.labelLarge,
-    color = MaterialTheme.colorScheme.onSurface
+    style = MaterialTheme.typography.labelLarge
   )
 }
 

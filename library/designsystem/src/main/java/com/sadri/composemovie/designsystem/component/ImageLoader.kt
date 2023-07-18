@@ -1,7 +1,9 @@
 package com.sadri.composemovie.designsystem.component
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import com.bumptech.glide.request.RequestOptions
 import com.sadri.composemovie.designsystem.R
@@ -19,7 +21,7 @@ fun ImageLoader(
   failureImageRes: Int = R.drawable.ic_place_holder
 ) {
   GlideImage(
-    modifier = modifier,
+    modifier = modifier.clip(MaterialTheme.shapes.medium),
     imageModel = imageUrl,
     requestOptions = {
       scaleTypeTransform(scaleType)
