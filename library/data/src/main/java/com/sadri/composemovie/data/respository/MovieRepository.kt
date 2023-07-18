@@ -1,7 +1,7 @@
-package com.sadri.composemovie.search.domain.repository
+package com.sadri.composemovie.data.respository
 
 import com.sadri.composemovie.core.model.MovieDataEntity
 
-interface SearchRepository {
+interface MovieRepository {
   suspend fun search(query: String): Result<MovieDataEntity>
 }
