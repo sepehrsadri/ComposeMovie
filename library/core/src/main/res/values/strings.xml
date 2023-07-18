@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_unexpected_exception">Unknown Error</string>
+    <string name="error_internal_server_exception">Error on fetching data</string>
+    <string name="error_disconnect_exception">No Connection</string>
+    <string name="error_io_exception">Error on reading data</string>
+    <string name="error_network_io_exception">Network Error</string>
+</resources>

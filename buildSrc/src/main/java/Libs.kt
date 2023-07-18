@@ -12,7 +12,6 @@ object Libs {
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleKtx}"
         const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
         const val paging = "androidx.paging:paging-compose:${Versions.paging}"
-        const val worker = "androidx.work:work-runtime-ktx:${Versions.worker}"
         const val dataStore = "androidx.datastore:datastore-preferences:${Versions.prefrencesDataStore}"
         const val performance = "androidx.metrics:metrics-performance:${Versions.performance}"
         const val tracing = "androidx.tracing:tracing-ktx:${Versions.tracing}"
@@ -26,17 +25,17 @@ object Libs {
         const val composeActivity = "androidx.activity:activity-compose:${Versions.compose}"
         const val composeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.lifecycleKtxAlpha}"
         const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
-        const val composeRunTime = "androidx.compose.compiler:compiler:${Versions.compose}"
+        const val composeCompiler = "androidx.compose.compiler:compiler:${Versions.compose}"
         const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         const val composeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
         const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.composeMaterial3}"
         const val composeMaterial = "androidx.compose.material:material:${Versions.composeMaterial}"
         const val material3WindowSize = "androidx.compose.material3:material3-window-size-class:${Versions.material3WindowSize}"
+        const val composeRuntime = "androidx.compose.runtime:runtime:${Versions.compose}"
 
         // Hilt
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-        const val androidxHiltWork = "androidx.hilt:hilt-work:${Versions.androidxHilt}"
         const val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Versions.androidxHilt}"
         const val hiltBinder = "com.paulrybitskyi:hilt-binder:${Versions.hiltBinder}"
         const val hiltBinderCompiler = "com.paulrybitskyi:hilt-binder-compiler:${Versions.hiltBinder}"
@@ -61,6 +60,7 @@ object Libs {
         const val pagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.pager}"
         const val instagramPagerIndicator = "com.github.talhatek:pager_indicator:${Versions.pagerIndicator}"
         const val collectionsImmutable = "org.jetbrains.kotlinx:kotlinx-collections-immutable:${Versions.collectionsImmutable}"
+        const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     }
 
     object Testing {

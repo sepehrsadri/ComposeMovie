@@ -1,6 +1,3 @@
-import com.android.build.api.variant.impl.VariantOutputImpl
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
@@ -50,13 +47,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
+    
 
     buildFeatures {
         compose = true
@@ -69,20 +67,20 @@ android {
 
 dependencies {
     implementation(project(":library:designsystem"))
+    implementation(project(":library:core"))
+    implementation(project(":library:network"))
+    implementation(project(":feature:dashboard"))
 
     implementation(Libs.Common.kotlinLib)
     implementation(Libs.Common.coroutines)
     implementation(Libs.Common.coroutinesAndroid)
 
-    implementation(Libs.Common.coreKtx)
     implementation(Libs.Common.viewModelKtx)
     implementation(Libs.Common.liveDataKtx)
     implementation(Libs.Common.composeActivity)
     implementation(Libs.Common.composeUi)
-    implementation(Libs.Common.composeRunTime)
-    implementation(Libs.Common.composeUiToolingPreview)
-    implementation(Libs.Common.worker)
-    debugImplementation(Libs.Common.composeUiTooling)
+    implementation(Libs.Common.composeCompiler)
+    implementation(Libs.Common.composeRuntime)
 
     implementation(Libs.Common.performance)
     implementation(Libs.Common.tracing)
@@ -97,7 +95,8 @@ dependencies {
 
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
-    implementation(Libs.Common.androidxHiltWork)
+
+    implementation(Libs.Common.timber)
 
     testImplementation(Libs.Testing.junit)
     testImplementation(Libs.Testing.coroutinesTest)

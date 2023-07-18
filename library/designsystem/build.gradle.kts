@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-
 plugins {
     id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
@@ -8,29 +6,43 @@ plugins {
 android {
     namespace = "com.sadri.composemovie.designsystem"
     compileSdk = Android.compileSdkVersion
+
+    defaultConfig {
+        minSdk = Android.minSdkVersion
+        targetSdk = Android.targetSdkVersion
+    }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+
 }
 
 dependencies {
+    implementation(project(":library:core"))
 
-    implementation(Libs.Common.coreKtx)
     implementation(Libs.Common.composeMaterial3)
     implementation(Libs.Common.composeMaterial)
     implementation(Libs.Common.composeUi)
-    implementation(Libs.Common.composeRunTime)
-    implementation(Libs.Common.composeUiToolingPreview)
-    debugImplementation(Libs.Common.composeUiTooling)
-    implementation(Libs.Common.composeUiToolingPreview)
+    implementation(Libs.Common.composeCompiler)
     implementation(Libs.Common.paging)
     implementation(Libs.Common.composeLifecycle)
     implementation(Libs.Common.composeActivity)
-
-    implementation(Libs.Common.systemUiController)
+    implementation(Libs.Common.composeRuntime)
 
     implementation(Libs.Common.imageLoader)
     implementation(Libs.Common.imageLoaderPlaceHolder)
