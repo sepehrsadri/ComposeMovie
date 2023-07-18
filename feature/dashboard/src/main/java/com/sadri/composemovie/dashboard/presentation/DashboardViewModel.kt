@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sadri.composemovie.core.extension.toLocalException
 import com.sadri.composemovie.core.model.UiState
-import com.sadri.composemovie.search.domain.interactor.SearchMovieUseCase
+import com.sadri.composemovie.domain.MovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @OptIn(FlowPreview::class)
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-  private val searchMovieUseCase: SearchMovieUseCase
+  private val movieUseCase: MovieUseCase
 ) : ViewModel() {
 
   private val _viewState: MutableStateFlow<UiState<DashboardViewState>> =
@@ -50,7 +50,7 @@ class DashboardViewModel @Inject constructor(
     if (query.isEmpty()) return
     viewModelScope.launch {
       _viewState.value = UiState.Loading
-      searchMovieUseCase(query)
+      movieUseCase(query)
         .onSuccess { response ->
           _viewState.value = UiState.Success(
             DashboardViewState(response.data)

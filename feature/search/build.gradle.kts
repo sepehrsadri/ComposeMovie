@@ -36,8 +36,6 @@ android {
 
 dependencies {
   implementation(project(":library:designsystem"))
-  implementation(project(":library:network"))
-  implementation(project(":library:core"))
 
   implementation(Libs.Common.kotlinLib)
   implementation(Libs.Common.coroutines)
