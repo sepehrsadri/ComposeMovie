@@ -31,6 +31,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":library:core"))
+
     implementation(Libs.Common.composeMaterial3)
     implementation(Libs.Common.composeMaterial)
     implementation(Libs.Common.composeUi)

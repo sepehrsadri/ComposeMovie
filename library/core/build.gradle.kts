@@ -37,4 +37,6 @@ dependencies {
   implementation(Libs.Common.coroutines)
   implementation(Libs.Common.coroutinesAndroid)
   implementation(Libs.Common.composeRuntime)
+
+  api(Libs.Common.gson)
 }
