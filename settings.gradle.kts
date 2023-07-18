@@ -31,5 +31,6 @@ include(
     ":library:network",
     ":library:core",
     ":library:domain",
-    ":library:data"
+    ":library:data",
+    ":library:testing"
 )
