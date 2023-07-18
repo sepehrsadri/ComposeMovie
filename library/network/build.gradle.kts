@@ -15,16 +15,17 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
 
 dependencies {
+    implementation(project(":library:core"))
     implementation(Libs.Common.hilt)
     kapt(Libs.Common.hiltCompiler)
     implementation(Libs.Common.hiltBinder)
