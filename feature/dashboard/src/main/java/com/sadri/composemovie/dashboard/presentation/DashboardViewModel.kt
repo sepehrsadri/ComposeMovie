@@ -65,6 +65,6 @@ class DashboardViewModel @Inject constructor(
 
   companion object {
     const val SEARCH_DEBOUNCE = 1000L
-    const val DEFAULT_SEARCH_QUERY = "جدید"
+    const val DEFAULT_SEARCH_QUERY = "actor"
   }
 }
