@@ -20,7 +20,10 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sadri.composemovie.core.model.UiState
+import com.sadri.composemovie.core.model.isLoading
 import com.sadri.composemovie.dashboard.R
+import com.sadri.composemovie.designsystem.component.FailureComponent
 import com.sadri.composemovie.designsystem.component.MoviesList
 import com.sadri.composemovie.designsystem.theme.space
 import com.sadri.composemovie.search.presentation.SearchBar
@@ -33,7 +36,6 @@ fun DashboardScreen(
   val focusRequester = remember { FocusRequester() }
   val keyboardController = LocalSoftwareKeyboardController.current
   val state = viewModel.viewState.collectAsState().value
-  val movies = state.movies
   Scaffold(
     topBar = {
       SearchBar(
@@ -51,16 +53,24 @@ fun DashboardScreen(
         .fillMaxSize()
         .padding(MaterialTheme.space.medium)
     ) {
-      when {
-        state.loading -> {
+      when (state) {
+        is UiState.Loading -> {
           Loading()
         }
-        movies.isNotEmpty() -> {
-          MoviesList(movies = movies)
+        is UiState.Success -> {
+          MoviesList(movies = state.data.movies)
+        }
+        is UiState.Failure -> {
+          FailureComponent(
+            error = state.localException,
+            onRetryClick = viewModel::onRetry,
+            modifier = Modifier.align(Alignment.Center),
+            color = MaterialTheme.colorScheme.primary
+          )
         }
       }
     }
-    LaunchedEffect(state.loading) {
+    LaunchedEffect(state.isLoading) {
       keyboardController?.hide()
     }
   }
