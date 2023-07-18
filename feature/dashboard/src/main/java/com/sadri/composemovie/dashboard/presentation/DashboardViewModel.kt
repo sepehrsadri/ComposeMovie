@@ -2,6 +2,8 @@ package com.sadri.composemovie.dashboard.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sadri.composemovie.core.extension.toLocalException
+import com.sadri.composemovie.core.model.UiState
 import com.sadri.composemovie.search.domain.interactor.SearchMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
@@ -19,8 +21,9 @@ class DashboardViewModel @Inject constructor(
   private val searchMovieUseCase: SearchMovieUseCase
 ) : ViewModel() {
 
-  private val _viewState = MutableStateFlow(DashboardViewState())
-  val viewState: StateFlow<DashboardViewState> = _viewState
+  private val _viewState: MutableStateFlow<UiState<DashboardViewState>> =
+    MutableStateFlow(UiState.Loading)
+  val viewState: StateFlow<UiState<DashboardViewState>> = _viewState
 
   private val _textSearch = MutableStateFlow("")
   private val textSearch: StateFlow<String> = _textSearch.asStateFlow()
@@ -38,24 +41,24 @@ class DashboardViewModel @Inject constructor(
     _textSearch.value = it
   }
 
+  fun onRetry() {
+    val query = textSearch.value.ifBlank { DEFAULT_SEARCH_QUERY }
+    search(query)
+  }
+
   fun search(query: String) {
     if (query.isEmpty()) return
     viewModelScope.launch {
-      _viewState.value = viewState.value.copy(
-        loading = true
-      )
+      _viewState.value = UiState.Loading
       searchMovieUseCase(query)
         .onSuccess { response ->
-          _viewState.value = viewState.value.copy(
-            loading = false,
-            movies = response.data
+          _viewState.value = UiState.Success(
+            DashboardViewState(response.data)
           )
         }
-        .onFailure {
-          _viewState.value = viewState.value.copy(
-            loading = false
-          )
-          Timber.e("fetching movies failed", it)
+        .onFailure { exception ->
+          _viewState.value = UiState.Failure(exception.toLocalException())
+          Timber.e("fetching movies failed", exception)
         }
     }
   }
