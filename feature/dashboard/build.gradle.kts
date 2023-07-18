@@ -40,6 +40,7 @@ dependencies {
   implementation(project(":library:network"))
   implementation(project(":library:core"))
   implementation(project(":library:domain"))
+  testImplementation(project(":library:testing"))
 
   implementation(Libs.Common.kotlinLib)
   implementation(Libs.Common.coroutines)
