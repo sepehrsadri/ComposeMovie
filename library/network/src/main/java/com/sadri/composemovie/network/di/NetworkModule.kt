@@ -3,6 +3,7 @@ package com.sadri.composemovie.network.di
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.sadri.composemovie.network.Constants.API_BASE_URL
+import com.sadri.composemovie.network.api.MovieService
 import com.sadri.composemovie.network.di.qualifire.LoggingInterceptor
 import com.sadri.composemovie.network.di.qualifire.OkHttpChuckerInterceptor
 import com.sadri.composemovie.network.interceptors.HeaderInterceptor
@@ -76,5 +77,11 @@ internal object NetworkModule {
       .client(okHttp)
       .addConverterFactory(converterFactory)
       .build()
+  }
+
+  @Provides
+  @Reusable
+  fun provideSearchService(retrofit: Retrofit): MovieService {
+    return retrofit.create(MovieService::class.java)
   }
 }

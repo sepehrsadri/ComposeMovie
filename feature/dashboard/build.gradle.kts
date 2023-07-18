@@ -35,10 +35,11 @@ android {
 }
 
 dependencies {
+  implementation(project(":feature:search"))
   implementation(project(":library:designsystem"))
   implementation(project(":library:network"))
   implementation(project(":library:core"))
-  implementation(project(":feature:search"))
+  implementation(project(":library:domain"))
 
   implementation(Libs.Common.kotlinLib)
   implementation(Libs.Common.coroutines)

@@ -29,5 +29,7 @@ include(
 include(
     ":library:designsystem",
     ":library:network",
-    ":library:core"
+    ":library:core",
+    ":library:domain",
+    ":library:data"
 )
