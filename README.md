@@ -28,8 +28,6 @@ called [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the
 
 ## Modules:
 
-<img width="609" alt="Modules Dependency" src="https://user-images.githubusercontent.com/41581915/208340968-e7cb862b-01a5-4460-a5bc-dfd080dcb74b.png">
-
 * **app** - It uses all the components and classes related to Android Framework. It gets the data
   from other modules and shows on UI. (**access all the modules**)
 * **feature-dashboard** - this feature module contains main screen and use **feature-search** for
